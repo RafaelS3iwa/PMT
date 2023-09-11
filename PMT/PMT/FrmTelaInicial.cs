@@ -21,7 +21,13 @@ namespace PMT
         {
             FrmLoginUsuario formLoginUsuario = new FrmLoginUsuario();
             formLoginUsuario.Show();
-            formLoginUsuario.MostrarPanelLoginUsuario();
+            this.Hide();
+        }
+
+        private void BtnEmpresa_Click(object sender, EventArgs e)
+        {
+            FrmUsuarioIndex frmUsuarioIndex = new FrmUsuarioIndex();
+            frmUsuarioIndex.Show();
             this.Hide();
         }
     }

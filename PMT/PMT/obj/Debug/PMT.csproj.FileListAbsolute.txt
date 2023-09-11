@@ -12,3 +12,17 @@ C:\Users\Rafael\source\repos\PMT\PMT\obj\Debug\PMT.pdb
 C:\Users\Rafael\source\repos\PMT\PMT\obj\Debug\PMT.FrmTelaInicial.resources
 C:\Users\Rafael\source\repos\PMT\PMT\obj\Debug\PMT.FrmCadastroUsuario.resources
 C:\Users\Rafael\source\repos\PMT\PMT\obj\Debug\PMT.FrmLoginUsuario.resources
+C:\PMT\PMT\PMT\bin\Debug\PMT.exe.config
+C:\PMT\PMT\PMT\bin\Debug\PMT.exe
+C:\PMT\PMT\PMT\bin\Debug\PMT.pdb
+C:\PMT\PMT\PMT\obj\Debug\PMT.csproj.AssemblyReference.cache
+C:\PMT\PMT\PMT\obj\Debug\PMT.csproj.SuggestedBindingRedirects.cache
+C:\PMT\PMT\PMT\obj\Debug\PMT.FrmCadastroUsuario.resources
+C:\PMT\PMT\PMT\obj\Debug\PMT.FrmLoginUsuario.resources
+C:\PMT\PMT\PMT\obj\Debug\PMT.FrmTelaInicial.resources
+C:\PMT\PMT\PMT\obj\Debug\PMT.FrmUsuarioIndex.resources
+C:\PMT\PMT\PMT\obj\Debug\PMT.Properties.Resources.resources
+C:\PMT\PMT\PMT\obj\Debug\PMT.csproj.GenerateResource.cache
+C:\PMT\PMT\PMT\obj\Debug\PMT.csproj.CoreCompileInputs.cache
+C:\PMT\PMT\PMT\obj\Debug\PMT.exe
+C:\PMT\PMT\PMT\obj\Debug\PMT.pdb

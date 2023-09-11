@@ -79,6 +79,7 @@
             this.BtnConfirmarLoginUsuario.TabIndex = 7;
             this.BtnConfirmarLoginUsuario.Text = "->";
             this.BtnConfirmarLoginUsuario.UseVisualStyleBackColor = true;
+            this.BtnConfirmarLoginUsuario.Click += new System.EventHandler(this.BtnConfirmarLoginUsuario_Click);
             // 
             // label3
             // 

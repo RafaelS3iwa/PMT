@@ -36,7 +36,6 @@
             this.BtnConfirmar = new System.Windows.Forms.Button();
             this.TxtSenhaConfUsuario = new System.Windows.Forms.TextBox();
             this.TxtSenhaUsuario = new System.Windows.Forms.TextBox();
-            this.TxtDataNascimento = new System.Windows.Forms.TextBox();
             this.TxtEmailUsuario = new System.Windows.Forms.TextBox();
             this.TxtNomeSocUsuario = new System.Windows.Forms.TextBox();
             this.TxtNomeUsuario = new System.Windows.Forms.TextBox();
@@ -46,6 +45,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.TxtDataNascimento = new System.Windows.Forms.MaskedTextBox();
+            this.LblAguarde = new System.Windows.Forms.Label();
             this.panelCadastroUsuario.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,13 +62,14 @@
             // 
             // panelCadastroUsuario
             // 
+            this.panelCadastroUsuario.Controls.Add(this.LblAguarde);
+            this.panelCadastroUsuario.Controls.Add(this.TxtDataNascimento);
             this.panelCadastroUsuario.Controls.Add(this.LlblLogin);
             this.panelCadastroUsuario.Controls.Add(this.label8);
             this.panelCadastroUsuario.Controls.Add(this.BtnCancelar);
             this.panelCadastroUsuario.Controls.Add(this.BtnConfirmar);
             this.panelCadastroUsuario.Controls.Add(this.TxtSenhaConfUsuario);
             this.panelCadastroUsuario.Controls.Add(this.TxtSenhaUsuario);
-            this.panelCadastroUsuario.Controls.Add(this.TxtDataNascimento);
             this.panelCadastroUsuario.Controls.Add(this.TxtEmailUsuario);
             this.panelCadastroUsuario.Controls.Add(this.TxtNomeSocUsuario);
             this.panelCadastroUsuario.Controls.Add(this.TxtNomeUsuario);
@@ -113,6 +115,7 @@
             this.BtnCancelar.TabIndex = 13;
             this.BtnCancelar.Text = "Cancelar";
             this.BtnCancelar.UseVisualStyleBackColor = true;
+            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // BtnConfirmar
             // 
@@ -123,6 +126,7 @@
             this.BtnConfirmar.TabIndex = 12;
             this.BtnConfirmar.Text = "Confirmar";
             this.BtnConfirmar.UseVisualStyleBackColor = true;
+            this.BtnConfirmar.Click += new System.EventHandler(this.BtnConfirmar_Click);
             // 
             // TxtSenhaConfUsuario
             // 
@@ -139,14 +143,6 @@
             this.TxtSenhaUsuario.Name = "TxtSenhaUsuario";
             this.TxtSenhaUsuario.Size = new System.Drawing.Size(327, 26);
             this.TxtSenhaUsuario.TabIndex = 10;
-            // 
-            // TxtDataNascimento
-            // 
-            this.TxtDataNascimento.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtDataNascimento.Location = new System.Drawing.Point(573, 52);
-            this.TxtDataNascimento.Name = "TxtDataNascimento";
-            this.TxtDataNascimento.Size = new System.Drawing.Size(164, 26);
-            this.TxtDataNascimento.TabIndex = 8;
             // 
             // TxtEmailUsuario
             // 
@@ -232,6 +228,26 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Nome Completo";
             // 
+            // TxtDataNascimento
+            // 
+            this.TxtDataNascimento.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtDataNascimento.Location = new System.Drawing.Point(573, 52);
+            this.TxtDataNascimento.Mask = "00/00/0000";
+            this.TxtDataNascimento.Name = "TxtDataNascimento";
+            this.TxtDataNascimento.Size = new System.Drawing.Size(164, 26);
+            this.TxtDataNascimento.TabIndex = 16;
+            this.TxtDataNascimento.ValidatingType = typeof(System.DateTime);
+            // 
+            // LblAguarde
+            // 
+            this.LblAguarde.AutoSize = true;
+            this.LblAguarde.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblAguarde.Location = new System.Drawing.Point(322, 374);
+            this.LblAguarde.Name = "LblAguarde";
+            this.LblAguarde.Size = new System.Drawing.Size(86, 19);
+            this.LblAguarde.TabIndex = 17;
+            this.LblAguarde.Text = "Aguarde...";
+            // 
             // FrmCadastroUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -264,12 +280,13 @@
         private System.Windows.Forms.TextBox TxtSenhaConfUsuario;
         private System.Windows.Forms.TextBox TxtSenhaUsuario;
         private System.Windows.Forms.TextBox TxtEmailUsuario;
-        private System.Windows.Forms.TextBox TxtDataNascimento;
         private System.Windows.Forms.TextBox TxtNomeSocUsuario;
         private System.Windows.Forms.TextBox TxtNomeUsuario;
         private System.Windows.Forms.Button BtnCancelar;
         private System.Windows.Forms.Button BtnConfirmar;
         private System.Windows.Forms.LinkLabel LlblLogin;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.MaskedTextBox TxtDataNascimento;
+        private System.Windows.Forms.Label LblAguarde;
     }
 }

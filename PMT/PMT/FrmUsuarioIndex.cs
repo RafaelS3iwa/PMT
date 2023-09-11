@@ -16,5 +16,28 @@ namespace PMT
         {
             InitializeComponent();
         }
+
+        private void FrmUsuarioIndex_Load(object sender, EventArgs e)
+        {
+            cbUsuarioSettings.Items.Add("Usuário");
+            cbUsuarioSettings.Items.Add("Editar");
+            cbUsuarioSettings.Items.Add("Sair");
+
+            cbUsuarioSettings.SelectedIndex = 0;
+        }
+
+        private void cbUsuarioSeting_DropDown(object sender, EventArgs e)
+        {
+            if(cbUsuarioSettings.SelectedItem.ToString() == "Editar")
+            {
+                cbUsuarioSettings.SelectedIndex = 0;
+                MessageBox.Show("Ai minha voida");
+            }
+            else if (cbUsuarioSettings.SelectedItem.ToString() == "Sair")
+            {
+                cbUsuarioSettings.SelectedIndex = 0;
+                MessageBox.Show("Ai minha voida");
+            }
+        }
     }
 }
