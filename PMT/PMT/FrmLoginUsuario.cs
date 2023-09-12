@@ -62,7 +62,7 @@ namespace PMT
                         string senha = reader.GetString(reader.GetOrdinal("senha")); 
 
                         Usuario usuario = new Usuario(nomeCompleto, nomeSocial, dataNascimento, email, senha);
-
+                        SessaoUsuario.DefiniroUsuarioAtual(usuario);
                         reader.Close();
                         MessageBox.Show("O login foi realizado com sucesso!");
 

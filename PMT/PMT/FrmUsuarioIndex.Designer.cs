@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cbUsuarioSettings = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbConfiguracoes = new System.Windows.Forms.ComboBox();
             this.BtnCurtir = new System.Windows.Forms.Button();
             this.BtnRejeitar = new System.Windows.Forms.Button();
             this.btnAindaNaoSei = new System.Windows.Forms.Button();
             this.PbVaga = new System.Windows.Forms.PictureBox();
-            this.cbUsuarioSettings = new System.Windows.Forms.ComboBox();
+            this.LblNome = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbVaga)).BeginInit();
             this.SuspendLayout();
@@ -49,6 +50,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(552, 35);
             this.panel1.TabIndex = 1;
+            // 
+            // cbUsuarioSettings
+            // 
+            this.cbUsuarioSettings.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbUsuarioSettings.FormattingEnabled = true;
+            this.cbUsuarioSettings.Location = new System.Drawing.Point(13, 7);
+            this.cbUsuarioSettings.Name = "cbUsuarioSettings";
+            this.cbUsuarioSettings.Size = new System.Drawing.Size(121, 21);
+            this.cbUsuarioSettings.TabIndex = 3;
+            this.cbUsuarioSettings.SelectedIndexChanged += new System.EventHandler(this.cbUsuarioSeting_DropDown);
             // 
             // label1
             // 
@@ -104,21 +115,21 @@
             this.PbVaga.TabIndex = 4;
             this.PbVaga.TabStop = false;
             // 
-            // cbUsuarioSettings
+            // LblNome
             // 
-            this.cbUsuarioSettings.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbUsuarioSettings.FormattingEnabled = true;
-            this.cbUsuarioSettings.Location = new System.Drawing.Point(13, 7);
-            this.cbUsuarioSettings.Name = "cbUsuarioSettings";
-            this.cbUsuarioSettings.Size = new System.Drawing.Size(121, 21);
-            this.cbUsuarioSettings.TabIndex = 3;
-            this.cbUsuarioSettings.SelectedIndexChanged += new System.EventHandler(this.cbUsuarioSeting_DropDown);
+            this.LblNome.AutoSize = true;
+            this.LblNome.Location = new System.Drawing.Point(464, 343);
+            this.LblNome.Name = "LblNome";
+            this.LblNome.Size = new System.Drawing.Size(35, 13);
+            this.LblNome.TabIndex = 5;
+            this.LblNome.Text = "label2";
             // 
             // FrmUsuarioIndex
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(589, 481);
+            this.Controls.Add(this.LblNome);
             this.Controls.Add(this.PbVaga);
             this.Controls.Add(this.btnAindaNaoSei);
             this.Controls.Add(this.BtnRejeitar);
@@ -132,6 +143,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbVaga)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -144,5 +156,6 @@
         private System.Windows.Forms.Button btnAindaNaoSei;
         private System.Windows.Forms.PictureBox PbVaga;
         private System.Windows.Forms.ComboBox cbUsuarioSettings;
+        private System.Windows.Forms.Label LblNome;
     }
 }

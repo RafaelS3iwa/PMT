@@ -1,6 +1,6 @@
 ﻿namespace PMT
 {
-    partial class EditarPerfilUsuario
+    partial class FrmEditarPerfilUsuario
     {
         /// <summary>
         /// Required designer variable.
@@ -36,6 +36,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.LblDataNascimento = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.BtnVoltar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -110,11 +111,22 @@
             this.label8.TabIndex = 6;
             this.label8.Text = "Data de Nascimento:";
             // 
-            // EditarPerfilUsuario
+            // BtnVoltar
+            // 
+            this.BtnVoltar.Location = new System.Drawing.Point(44, 296);
+            this.BtnVoltar.Name = "BtnVoltar";
+            this.BtnVoltar.Size = new System.Drawing.Size(75, 23);
+            this.BtnVoltar.TabIndex = 8;
+            this.BtnVoltar.Text = "Voltar";
+            this.BtnVoltar.UseVisualStyleBackColor = true;
+            this.BtnVoltar.Click += new System.EventHandler(this.BtnVoltar_Click);
+            // 
+            // FrmEditarPerfilUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(564, 558);
+            this.Controls.Add(this.BtnVoltar);
             this.Controls.Add(this.LblDataNascimento);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.LblEmail);
@@ -123,7 +135,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.LblNome);
             this.Controls.Add(this.label1);
-            this.Name = "EditarPerfilUsuario";
+            this.Name = "FrmEditarPerfilUsuario";
             this.Text = "EditarPerfilUsuario";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -140,5 +152,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label LblDataNascimento;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button BtnVoltar;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PMT.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,8 @@ namespace PMT
         public FrmUsuarioIndex()
         {
             InitializeComponent();
+            Usuario usuario = SessaoUsuario.UsuarioAtual;
+            LblNome.Text = usuario.getnomeCompleto();
         }
 
         private void FrmUsuarioIndex_Load(object sender, EventArgs e)
@@ -31,12 +34,16 @@ namespace PMT
             if(cbUsuarioSettings.SelectedItem.ToString() == "Editar")
             {
                 cbUsuarioSettings.SelectedIndex = 0;
-                MessageBox.Show("Ai minha voida");
+                FrmEditarPerfilUsuario frmEditarPerfilUsuario = new FrmEditarPerfilUsuario();
+                frmEditarPerfilUsuario.Show();
+                this.Hide();
             }
             else if (cbUsuarioSettings.SelectedItem.ToString() == "Sair")
             {
                 cbUsuarioSettings.SelectedIndex = 0;
-                MessageBox.Show("Ai minha voida");
+                FrmLoginUsuario frmLoginUsuario = new FrmLoginUsuario();
+                frmLoginUsuario.Show();
+                this.Hide();
             }
         }
     }
