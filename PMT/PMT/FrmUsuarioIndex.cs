@@ -41,9 +41,14 @@ namespace PMT
             else if (cbUsuarioSettings.SelectedItem.ToString() == "Sair")
             {
                 cbUsuarioSettings.SelectedIndex = 0;
-                FrmLoginUsuario frmLoginUsuario = new FrmLoginUsuario();
-                frmLoginUsuario.Show();
-                this.Hide();
+
+                DialogResult resultado = MessageBox.Show("Tem certeza que deseja sair?", "Aviso", MessageBoxButtons.YesNo);
+                if(resultado == DialogResult.Yes)
+                {
+                    FrmLoginUsuario frmLoginUsuario = new FrmLoginUsuario();
+                    frmLoginUsuario.Show();
+                    this.Hide();
+                }
             }
         }
     }

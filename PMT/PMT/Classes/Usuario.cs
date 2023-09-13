@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace PMT.Classes
 {
-    internal class Usuario
+    public class Usuario
     {
-        private int _id;
-        private string _nomeCompleto;
-        private string _nomeSocial;
-        private DateTime _dataNascimento;
-        private string _email;
-        private string _senha; 
+        protected int _id;
+        protected string _nomeCompleto;
+        protected string _nomeSocial;
+        protected DateTime _dataNascimento;
+        protected string _email;
+        protected string _senha; 
 
         public Usuario(string nomeCompleto, string nomeSocial, DateTime dataNascimento, string email, string senha)
         {
@@ -41,7 +41,9 @@ namespace PMT.Classes
 
         public DateTime getDataNascimento()
         {
-            return _dataNascimento;
+            DateTime dataNascimento; 
+            DateTime.TryParse(_dataNascimento.ToString(), out dataNascimento);
+            return dataNascimento;
         }
 
         public string getEmail()

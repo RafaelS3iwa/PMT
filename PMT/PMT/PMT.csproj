@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Candidato.cs" />
     <Compile Include="Classes\SessaoUsuario.cs" />
     <Compile Include="Classes\Usuario.cs" />
     <Compile Include="FrmEditarPerfilUsuario.cs">
@@ -59,6 +61,18 @@
     </Compile>
     <Compile Include="FrmCadastroUsuario.Designer.cs">
       <DependentUpon>FrmCadastroUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmIndexEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmIndexEmpresa.Designer.cs">
+      <DependentUpon>FrmIndexEmpresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLoginEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLoginEmpresa.Designer.cs">
+      <DependentUpon>FrmLoginEmpresa.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmLoginUsuario.cs">
       <SubType>Form</SubType>
@@ -85,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCadastroUsuario.resx">
       <DependentUpon>FrmCadastroUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLoginEmpresa.resx">
+      <DependentUpon>FrmLoginEmpresa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLoginUsuario.resx">
       <DependentUpon>FrmLoginUsuario.cs</DependentUpon>

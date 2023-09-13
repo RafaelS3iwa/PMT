@@ -17,9 +17,15 @@ namespace PMT
         {
             InitializeComponent();
             Usuario usuario = SessaoUsuario.UsuarioAtual;
-            LblNome.Text = usuario.getnomeCompleto();
-            LblNomeSocial.Text = usuario.getnomeSocial();
-            LblEmail.Text = usuario.getEmail();
+
+            TxtNome.Text = usuario.getnomeCompleto();
+            TxtNomeSocial.Text = usuario.getnomeSocial();
+            TxtEmail.Text = usuario.getEmail();
+            TxtDataNascimento.Text = usuario.getDataNascimento();
+
+            CbFoto.Items.Add("Foto");
+            CbFoto.Items.Add("Adicionar Foto");
+            CbFoto.Items.Add("Remover Foto"); 
         }
 
         private void BtnVoltar_Click(object sender, EventArgs e)
@@ -27,6 +33,12 @@ namespace PMT
             FrmUsuarioIndex frmUsuarioIndex = new FrmUsuarioIndex();
             frmUsuarioIndex.Show();
             this.Hide(); 
+        }
+
+
+        private void CbFoto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -30,6 +30,8 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panelCadastroUsuario = new System.Windows.Forms.Panel();
+            this.LblAguarde = new System.Windows.Forms.Label();
+            this.TxtDataNascimento = new System.Windows.Forms.MaskedTextBox();
             this.LlblLogin = new System.Windows.Forms.LinkLabel();
             this.label8 = new System.Windows.Forms.Label();
             this.BtnCancelar = new System.Windows.Forms.Button();
@@ -45,8 +47,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.TxtDataNascimento = new System.Windows.Forms.MaskedTextBox();
-            this.LblAguarde = new System.Windows.Forms.Label();
             this.panelCadastroUsuario.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,6 +83,26 @@
             this.panelCadastroUsuario.Name = "panelCadastroUsuario";
             this.panelCadastroUsuario.Size = new System.Drawing.Size(752, 459);
             this.panelCadastroUsuario.TabIndex = 1;
+            // 
+            // LblAguarde
+            // 
+            this.LblAguarde.AutoSize = true;
+            this.LblAguarde.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblAguarde.Location = new System.Drawing.Point(322, 374);
+            this.LblAguarde.Name = "LblAguarde";
+            this.LblAguarde.Size = new System.Drawing.Size(86, 19);
+            this.LblAguarde.TabIndex = 17;
+            this.LblAguarde.Text = "Aguarde...";
+            // 
+            // TxtDataNascimento
+            // 
+            this.TxtDataNascimento.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtDataNascimento.Location = new System.Drawing.Point(573, 52);
+            this.TxtDataNascimento.Mask = "00/00/0000";
+            this.TxtDataNascimento.Name = "TxtDataNascimento";
+            this.TxtDataNascimento.Size = new System.Drawing.Size(164, 26);
+            this.TxtDataNascimento.TabIndex = 16;
+            this.TxtDataNascimento.ValidatingType = typeof(System.DateTime);
             // 
             // LlblLogin
             // 
@@ -228,26 +248,6 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Nome Completo";
             // 
-            // TxtDataNascimento
-            // 
-            this.TxtDataNascimento.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtDataNascimento.Location = new System.Drawing.Point(573, 52);
-            this.TxtDataNascimento.Mask = "00/00/0000";
-            this.TxtDataNascimento.Name = "TxtDataNascimento";
-            this.TxtDataNascimento.Size = new System.Drawing.Size(164, 26);
-            this.TxtDataNascimento.TabIndex = 16;
-            this.TxtDataNascimento.ValidatingType = typeof(System.DateTime);
-            // 
-            // LblAguarde
-            // 
-            this.LblAguarde.AutoSize = true;
-            this.LblAguarde.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblAguarde.Location = new System.Drawing.Point(322, 374);
-            this.LblAguarde.Name = "LblAguarde";
-            this.LblAguarde.Size = new System.Drawing.Size(86, 19);
-            this.LblAguarde.TabIndex = 17;
-            this.LblAguarde.Text = "Aguarde...";
-            // 
             // FrmCadastroUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -260,6 +260,7 @@
             this.Name = "FrmCadastroUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmCadastroUsuario";
+            this.Load += new System.EventHandler(this.FrmCadastroUsuario_Load);
             this.panelCadastroUsuario.ResumeLayout(false);
             this.panelCadastroUsuario.PerformLayout();
             this.ResumeLayout(false);

@@ -92,5 +92,10 @@ namespace PMT
         {
             await Task.Delay(2000); ;
         }
+
+        private void FrmLoginUsuario_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

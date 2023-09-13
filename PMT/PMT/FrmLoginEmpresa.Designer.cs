@@ -1,6 +1,6 @@
 ﻿namespace PMT
 {
-    partial class FrmLoginUsuario
+    partial class FrmLoginEmpresa
     {
         /// <summary>
         /// Required designer variable.
@@ -28,38 +28,54 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panelLoginUsuario = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panelLoginEmpresa = new System.Windows.Forms.Panel();
             this.CkManterConectado = new System.Windows.Forms.CheckBox();
-            this.BtnConfirmarLoginUsuario = new System.Windows.Forms.Button();
+            this.BtnConfirmarLoginEmpresa = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.LLblCadastrar = new System.Windows.Forms.LinkLabel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.TxtLoginUsuarioSenha = new System.Windows.Forms.TextBox();
-            this.TxtLoginUsuarioEmail = new System.Windows.Forms.TextBox();
+            this.TxtLoginEmpresaSenha = new System.Windows.Forms.TextBox();
+            this.TxtLoginEmpresaEmail = new System.Windows.Forms.TextBox();
             this.LblTitulo = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panelLoginUsuario.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panelLoginEmpresa.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panelLoginUsuario
+            // panel2
             // 
-            this.panelLoginUsuario.Controls.Add(this.CkManterConectado);
-            this.panelLoginUsuario.Controls.Add(this.BtnConfirmarLoginUsuario);
-            this.panelLoginUsuario.Controls.Add(this.label3);
-            this.panelLoginUsuario.Controls.Add(this.LLblCadastrar);
-            this.panelLoginUsuario.Controls.Add(this.label2);
-            this.panelLoginUsuario.Controls.Add(this.label1);
-            this.panelLoginUsuario.Controls.Add(this.TxtLoginUsuarioSenha);
-            this.panelLoginUsuario.Controls.Add(this.TxtLoginUsuarioEmail);
-            this.panelLoginUsuario.Controls.Add(this.LblTitulo);
-            this.panelLoginUsuario.Location = new System.Drawing.Point(2, 1);
-            this.panelLoginUsuario.Name = "panelLoginUsuario";
-            this.panelLoginUsuario.Size = new System.Drawing.Size(292, 437);
-            this.panelLoginUsuario.TabIndex = 0;
+            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Location = new System.Drawing.Point(292, 2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(508, 436);
+            this.panel2.TabIndex = 3;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(0, 1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(505, 435);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // panelLoginEmpresa
+            // 
+            this.panelLoginEmpresa.Controls.Add(this.CkManterConectado);
+            this.panelLoginEmpresa.Controls.Add(this.BtnConfirmarLoginEmpresa);
+            this.panelLoginEmpresa.Controls.Add(this.label3);
+            this.panelLoginEmpresa.Controls.Add(this.LLblCadastrar);
+            this.panelLoginEmpresa.Controls.Add(this.label2);
+            this.panelLoginEmpresa.Controls.Add(this.label1);
+            this.panelLoginEmpresa.Controls.Add(this.TxtLoginEmpresaSenha);
+            this.panelLoginEmpresa.Controls.Add(this.TxtLoginEmpresaEmail);
+            this.panelLoginEmpresa.Controls.Add(this.LblTitulo);
+            this.panelLoginEmpresa.Location = new System.Drawing.Point(0, 2);
+            this.panelLoginEmpresa.Name = "panelLoginEmpresa";
+            this.panelLoginEmpresa.Size = new System.Drawing.Size(292, 437);
+            this.panelLoginEmpresa.TabIndex = 2;
             // 
             // CkManterConectado
             // 
@@ -71,15 +87,15 @@
             this.CkManterConectado.Text = "Manter-se Conectado";
             this.CkManterConectado.UseVisualStyleBackColor = true;
             // 
-            // BtnConfirmarLoginUsuario
+            // BtnConfirmarLoginEmpresa
             // 
-            this.BtnConfirmarLoginUsuario.Location = new System.Drawing.Point(99, 287);
-            this.BtnConfirmarLoginUsuario.Name = "BtnConfirmarLoginUsuario";
-            this.BtnConfirmarLoginUsuario.Size = new System.Drawing.Size(63, 59);
-            this.BtnConfirmarLoginUsuario.TabIndex = 7;
-            this.BtnConfirmarLoginUsuario.Text = "->";
-            this.BtnConfirmarLoginUsuario.UseVisualStyleBackColor = true;
-            this.BtnConfirmarLoginUsuario.Click += new System.EventHandler(this.BtnConfirmarLoginUsuario_Click);
+            this.BtnConfirmarLoginEmpresa.Location = new System.Drawing.Point(99, 287);
+            this.BtnConfirmarLoginEmpresa.Name = "BtnConfirmarLoginEmpresa";
+            this.BtnConfirmarLoginEmpresa.Size = new System.Drawing.Size(63, 59);
+            this.BtnConfirmarLoginEmpresa.TabIndex = 7;
+            this.BtnConfirmarLoginEmpresa.Text = "->";
+            this.BtnConfirmarLoginEmpresa.UseVisualStyleBackColor = true;
+            this.BtnConfirmarLoginEmpresa.Click += new System.EventHandler(this.BtnConfirmarLoginEmpresa_Click);
             // 
             // label3
             // 
@@ -99,7 +115,6 @@
             this.LLblCadastrar.TabIndex = 5;
             this.LLblCadastrar.TabStop = true;
             this.LLblCadastrar.Text = "Cadastrar-se";
-            this.LLblCadastrar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LLblCadastrar_LinkClicked);
             // 
             // label2
             // 
@@ -121,21 +136,21 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "E-mail";
             // 
-            // TxtLoginUsuarioSenha
+            // TxtLoginEmpresaSenha
             // 
-            this.TxtLoginUsuarioSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtLoginUsuarioSenha.Location = new System.Drawing.Point(29, 209);
-            this.TxtLoginUsuarioSenha.Name = "TxtLoginUsuarioSenha";
-            this.TxtLoginUsuarioSenha.Size = new System.Drawing.Size(220, 22);
-            this.TxtLoginUsuarioSenha.TabIndex = 2;
+            this.TxtLoginEmpresaSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtLoginEmpresaSenha.Location = new System.Drawing.Point(29, 209);
+            this.TxtLoginEmpresaSenha.Name = "TxtLoginEmpresaSenha";
+            this.TxtLoginEmpresaSenha.Size = new System.Drawing.Size(220, 22);
+            this.TxtLoginEmpresaSenha.TabIndex = 2;
             // 
-            // TxtLoginUsuarioEmail
+            // TxtLoginEmpresaEmail
             // 
-            this.TxtLoginUsuarioEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtLoginUsuarioEmail.Location = new System.Drawing.Point(29, 146);
-            this.TxtLoginUsuarioEmail.Name = "TxtLoginUsuarioEmail";
-            this.TxtLoginUsuarioEmail.Size = new System.Drawing.Size(220, 22);
-            this.TxtLoginUsuarioEmail.TabIndex = 1;
+            this.TxtLoginEmpresaEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtLoginEmpresaEmail.Location = new System.Drawing.Point(29, 146);
+            this.TxtLoginEmpresaEmail.Name = "TxtLoginEmpresaEmail";
+            this.TxtLoginEmpresaEmail.Size = new System.Drawing.Size(220, 22);
+            this.TxtLoginEmpresaEmail.TabIndex = 1;
             // 
             // LblTitulo
             // 
@@ -147,56 +162,36 @@
             this.LblTitulo.TabIndex = 0;
             this.LblTitulo.Text = "Insira sua conta PMT";
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Location = new System.Drawing.Point(294, 1);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(508, 436);
-            this.panel2.TabIndex = 1;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(0, 1);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(505, 435);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // FrmLoginUsuario
+            // FrmLoginEmpresa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 436);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panelLoginUsuario);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.Name = "FrmLoginUsuario";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmLoginUsuario";
-            this.Load += new System.EventHandler(this.FrmLoginUsuario_Load);
-            this.panelLoginUsuario.ResumeLayout(false);
-            this.panelLoginUsuario.PerformLayout();
+            this.Controls.Add(this.panelLoginEmpresa);
+            this.Name = "FrmLoginEmpresa";
+            this.Text = "FrmLoginEmpresa";
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panelLoginEmpresa.ResumeLayout(false);
+            this.panelLoginEmpresa.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panelLoginUsuario;
-        private System.Windows.Forms.TextBox TxtLoginUsuarioSenha;
-        private System.Windows.Forms.TextBox TxtLoginUsuarioEmail;
-        private System.Windows.Forms.Label LblTitulo;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panelLoginEmpresa;
         private System.Windows.Forms.CheckBox CkManterConectado;
-        private System.Windows.Forms.Button BtnConfirmarLoginUsuario;
+        private System.Windows.Forms.Button BtnConfirmarLoginEmpresa;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.LinkLabel LLblCadastrar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox TxtLoginEmpresaSenha;
+        private System.Windows.Forms.TextBox TxtLoginEmpresaEmail;
+        private System.Windows.Forms.Label LblTitulo;
     }
 }

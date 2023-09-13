@@ -101,5 +101,10 @@ namespace PMT
         {
             await Task.Delay(2000);;
         }
+
+        private void FrmCadastroUsuario_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
