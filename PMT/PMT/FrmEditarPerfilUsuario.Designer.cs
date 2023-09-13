@@ -499,6 +499,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "FrmEditarPerfilUsuario";
             this.Text = "EditarPerfilUsuario";
+            this.Load += new System.EventHandler(this.FrmEditarPerfilUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PbFoto)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

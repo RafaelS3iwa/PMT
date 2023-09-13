@@ -21,7 +21,8 @@ namespace PMT
             TxtNome.Text = usuario.getnomeCompleto();
             TxtNomeSocial.Text = usuario.getnomeSocial();
             TxtEmail.Text = usuario.getEmail();
-            TxtDataNascimento.Text = usuario.getDataNascimento();
+
+            TxtDataNascimento.Text = usuario.getDataNascimento().ToString("dd/MM/yyyy");
 
             CbFoto.Items.Add("Foto");
             CbFoto.Items.Add("Adicionar Foto");
@@ -37,6 +38,11 @@ namespace PMT
 
 
         private void CbFoto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FrmEditarPerfilUsuario_Load(object sender, EventArgs e)
         {
 
         }

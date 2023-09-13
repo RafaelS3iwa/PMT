@@ -41,9 +41,7 @@ namespace PMT.Classes
 
         public DateTime getDataNascimento()
         {
-            DateTime dataNascimento; 
-            DateTime.TryParse(_dataNascimento.ToString(), out dataNascimento);
-            return dataNascimento;
+            return _dataNascimento;
         }
 
         public string getEmail()
