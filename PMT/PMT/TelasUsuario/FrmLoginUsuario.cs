@@ -21,8 +21,8 @@ namespace PMT
         public FrmLoginUsuario()
         {
             InitializeComponent();
-            //conexaoString = "Data Source=MAR0625641W10-1;Initial Catalog=PMT;Integrated Security=True";
-            conexaoString = "Data Source=DESKTOP-GTEHLVQ;Initial Catalog=PMT;Integrated Security=True";
+            conexaoString = "Data Source=MAR0625641W10-1;Initial Catalog=PMT;Integrated Security=True";
+            //conexaoString = "Data Source=DESKTOP-GTEHLVQ;Initial Catalog=PMT;Integrated Security=True";
             conexaoDB = new SqlConnection(conexaoString);
         }
 

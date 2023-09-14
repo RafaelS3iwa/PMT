@@ -34,8 +34,8 @@ namespace PMT
 
         public bool VerificarUsuarioCliente(int idUsuario)
         {
-            //conexaoString = "Data Source=MAR0625641W10-1;Initial Catalog=PMT;Integrated Security=True";
-            conexaoString = "Data Source=DESKTOP-GTEHLVQ;Initial Catalog=PMT;Integrated Security=True";
+            conexaoString = "Data Source=MAR0625641W10-1;Initial Catalog=PMT;Integrated Security=True";
+            //conexaoString = "Data Source=DESKTOP-GTEHLVQ;Initial Catalog=PMT;Integrated Security=True";
 
             string sql = "SELECT COUNT(*) FROM Candidadto WHERE id_usuario = @id_usuario";
             SqlCommand sqlCmd = new SqlCommand(sql, conexaoDB);

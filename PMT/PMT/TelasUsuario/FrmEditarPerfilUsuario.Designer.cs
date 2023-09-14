@@ -433,6 +433,7 @@
             this.TxtBiografia.Name = "TxtBiografia";
             this.TxtBiografia.Size = new System.Drawing.Size(222, 227);
             this.TxtBiografia.TabIndex = 43;
+            this.TxtBiografia.TextChanged += new System.EventHandler(this.TxtBiografia_TextChanged);
             // 
             // panel1
             // 

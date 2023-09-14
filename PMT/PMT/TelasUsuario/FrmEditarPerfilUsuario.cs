@@ -95,5 +95,10 @@ namespace PMT
         {
 
         }
+
+        private void TxtBiografia_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

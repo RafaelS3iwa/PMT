@@ -22,8 +22,8 @@ namespace PMT
         {
             InitializeComponent();
             LblAguarde.Visible = false;
-            //conexaoString = "Data Source=MAR0625641W10-1;Initial Catalog=PMT;Integrated Security=True";
-            conexaoString = "Data Source=DESKTOP-GTEHLVQ;Initial Catalog=PMT;Integrated Security=True";
+            conexaoString = "Data Source=MAR0625641W10-1;Initial Catalog=PMT;Integrated Security=True";
+            //conexaoString = "Data Source=DESKTOP-GTEHLVQ;Initial Catalog=PMT;Integrated Security=True";
             conexaoDB = new SqlConnection(conexaoString);
         }
 
@@ -52,7 +52,7 @@ namespace PMT
                     }
                     else
                     {
-                        TxtSenhaConfUsuario.Text = TxtSenhaUsuario.Text;
+                        TxtSenhaConfUsuario.Text = TxtSenhaUsuario.Text;    
                         string sql = "INSERT INTO Usuarios (nome_completo, nome_social, data_nascimento, email, senha) VALUES (@nome_completo, @nome_social, @data_nascimento, @email, @senha)";
                         conexaoDB.Open();
 

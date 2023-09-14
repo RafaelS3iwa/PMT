@@ -68,7 +68,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.CbFoto = new System.Windows.Forms.ComboBox();
             this.PbFoto = new System.Windows.Forms.PictureBox();
-            this.AnexoPdf = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbFoto)).BeginInit();
             this.SuspendLayout();
@@ -404,7 +403,6 @@
             // panel1
             // 
             this.panel1.AutoScroll = true;
-            this.panel1.Controls.Add(this.AnexoPdf);
             this.panel1.Controls.Add(this.CbFoto);
             this.panel1.Controls.Add(this.PbFoto);
             this.panel1.Controls.Add(this.label20);
@@ -442,19 +440,12 @@
             this.PbFoto.TabIndex = 74;
             this.PbFoto.TabStop = false;
             // 
-            // AnexoPdf
-            // 
-            this.AnexoPdf.Location = new System.Drawing.Point(16, 176);
-            this.AnexoPdf.Name = "AnexoPdf";
-            this.AnexoPdf.Size = new System.Drawing.Size(100, 20);
-            this.AnexoPdf.TabIndex = 76;
-            // 
             // FrmCadastroCandidato
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(645, 413);
+            this.ClientSize = new System.Drawing.Size(662, 413);
             this.Controls.Add(this.BtnConfirmar);
             this.Controls.Add(this.BtnVoltar);
             this.Controls.Add(this.TxtBiografia);
@@ -534,6 +525,5 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ComboBox CbFoto;
         private System.Windows.Forms.PictureBox PbFoto;
-        private System.Windows.Forms.TextBox AnexoPdf;
     }
 }

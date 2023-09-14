@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlTypes;
+using System.Runtime.CompilerServices;
 
 namespace PMT.TelasUsuario
 {
@@ -23,8 +24,8 @@ namespace PMT.TelasUsuario
         {
             InitializeComponent();
 
-            //conexaoString = "Data Source=MAR0625641W10-1;Initial Catalog=PMT;Integrated Security=True";
-            conexaoString = "Data Source=DESKTOP-GTEHLVQ;Initial Catalog=PMT;Integrated Security=True";
+            conexaoString = "Data Source=MAR0625641W10-1;Initial Catalog=PMT;Integrated Security=True";
+            //conexaoString = "Data Source=DESKTOP-GTEHLVQ;Initial Catalog=PMT;Integrated Security=True";
          
             CbFoto.Items.Add("Foto");
             CbFoto.Items.Add("Adicionar Foto");
@@ -59,11 +60,20 @@ namespace PMT.TelasUsuario
             if (CbFoto.SelectedItem.ToString() == "Adicionar Foto")
             {
                 CbFoto.SelectedIndex = 0;
-                SelecionarImagem();     
+                byte[] dadosDaFoto = SelecionarImagem();
+
+                if (dadosDaFoto != null)
+                {
+                    using (MemoryStream ms = new MemoryStream(dadosDaFoto))
+                    {
+                        PbFoto.Image = Image.FromStream(ms);
+                    }
+                }
             }
             else if (CbFoto.SelectedItem.ToString() == "Remover Foto")
             {
                 CbFoto.SelectedIndex = 0;
+                PbFoto.Image = null;
             }
         }
 
@@ -71,14 +81,14 @@ namespace PMT.TelasUsuario
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(TxtCpf.Text) || string.IsNullOrWhiteSpace(TxtCelular.Text) || string.IsNullOrWhiteSpace(TxtEscolaridade.Text) || string.IsNullOrWhiteSpace(TxtNacionalidade.Text) || string.IsNullOrWhiteSpace(TxtEstadoCivil.Text) || PbFoto == null || string.IsNullOrWhiteSpace(TxtCep.Text) || string.IsNullOrWhiteSpace(TxtLogradouro.Text) || string.IsNullOrWhiteSpace(TxtBairro.Text) || string.IsNullOrWhiteSpace(TxtBairro.Text) || string.IsNullOrWhiteSpace(TxtNumero.Text) || string.IsNullOrWhiteSpace(TxtCidade.Text) || string.IsNullOrWhiteSpace(TxtEstado.Text))
+                if (string.IsNullOrWhiteSpace(TxtCpf.Text) || string.IsNullOrWhiteSpace(TxtCelular.Text) || string.IsNullOrWhiteSpace(TxtEscolaridade.Text) || string.IsNullOrWhiteSpace(TxtNacionalidade.Text) || string.IsNullOrWhiteSpace(TxtEstadoCivil.Text) || PbFoto.Image == null || string.IsNullOrWhiteSpace(TxtCep.Text) || string.IsNullOrWhiteSpace(TxtLogradouro.Text) || string.IsNullOrWhiteSpace(TxtBairro.Text) || string.IsNullOrWhiteSpace(TxtBairro.Text) || string.IsNullOrWhiteSpace(TxtNumero.Text) || string.IsNullOrWhiteSpace(TxtCidade.Text) || string.IsNullOrWhiteSpace(TxtEstado.Text))
                 {
                     MessageBox.Show("Preencha todos os campos obrigatórios para realizar o cadastro.", "Aviso", MessageBoxButtons.OK);
                     return;
                 }
                 else
                 {
-                    string sql = "INSERT INTO Candidatos (id_usuario, id_area_interesse, cpf, telefone, genero, celular, experiencias, conhecimentos, biografia, escolaridade, nacionalidade, estado_civil, foto, anexo_pdf, cep, logradouro, bairro, numero, cidade, estado) VALUES (@id_usuario, @id_area_interesse, @cpf, @telefone, @genero, @celular, @experiencias, @conhecimentos, @biografia, @escolaridade, @nacionalidade, @estado_civil, @foto, @anexo_pdf, @cep, @logradouro, @bairro, @numero, @cidade, @estado)";
+                    string sql = "INSERT INTO Candidatos (id_usuario, id_area_interesse, cpf, telefone, genero, celular, experiencias, conhecimentos, biografia, escolaridade, nacionalidade, estado_civil, foto, cep, logradouro, bairro, numero, cidade, estado) VALUES (@id_usuario, @id_area_interesse, @cpf, @telefone, @genero, @celular, @experiencias, @conhecimentos, @biografia, @escolaridade, @nacionalidade, @estado_civil, @foto, @cep, @logradouro, @bairro, @numero, @cidade, @estado)";
                     conexaoDB.Open();
 
                     SqlCommand sqlCmd = new SqlCommand(sql, conexaoDB);
@@ -99,14 +109,25 @@ namespace PMT.TelasUsuario
                     sqlCmd.Parameters.AddWithValue("@nacionalidade", TxtNacionalidade.Text);
                     sqlCmd.Parameters.AddWithValue("@estado_civil", TxtEstadoCivil.Text);
 
-                    sqlCmd.Parameters.AddWithValue("@foto", CbFoto);
-
-                    AnexoPdf.Text = "dadascxzc"; 
-                    sqlCmd.Parameters.AddWithValue("@anexo_pdf", AnexoPdf.Text);
+                    if (PbFoto.Image != null)
+                    {
+                        using (MemoryStream ms = new MemoryStream())
+                        {
+                            PbFoto.Image.Save(ms, PbFoto.Image.RawFormat);
+                            byte[] dadosDaImagem = ms.ToArray();
+                            sqlCmd.Parameters.Add("@foto", SqlDbType.VarBinary).Value = dadosDaImagem;
+                        }
+                    }
                     sqlCmd.Parameters.AddWithValue("@cep", TxtCep.Text);
                     sqlCmd.Parameters.AddWithValue("@logradouro", TxtLogradouro.Text);
                     sqlCmd.Parameters.AddWithValue("@bairro", TxtBairro.Text);
-                    sqlCmd.Parameters.AddWithValue("@numero", TxtNumero.Text);
+
+                    int numero; 
+                    if(int.TryParse(TxtNumero.Text, out numero))
+                    {
+                        sqlCmd.Parameters.AddWithValue("@numero", numero);
+                    }
+
                     sqlCmd.Parameters.AddWithValue("@cidade", TxtCidade.Text);
                     sqlCmd.Parameters.AddWithValue("@estado", TxtEstado.Text);
                    
