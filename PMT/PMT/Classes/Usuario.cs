@@ -15,8 +15,9 @@ namespace PMT.Classes
         protected string _email;
         protected string _senha; 
 
-        public Usuario(string nomeCompleto, string nomeSocial, DateTime dataNascimento, string email, string senha)
+        public Usuario(int id, string nomeCompleto, string nomeSocial, DateTime dataNascimento, string email, string senha)
         {
+            _id = id;
             _nomeCompleto = nomeCompleto;
             _nomeSocial = nomeSocial;
             _dataNascimento = dataNascimento;

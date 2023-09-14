@@ -21,6 +21,7 @@ namespace PMT
         public FrmLoginUsuario()
         {
             InitializeComponent();
+            //conexaoString = "Data Source=MAR0625641W10-1;Initial Catalog=PMT;Integrated Security=True";
             conexaoString = "Data Source=DESKTOP-GTEHLVQ;Initial Catalog=PMT;Integrated Security=True";
             conexaoDB = new SqlConnection(conexaoString);
         }
@@ -43,7 +44,7 @@ namespace PMT
             {
                 try
                 {
-                    string sql = "SELECT nome_completo, nome_social, data_nascimento, email, senha FROM Usuarios WHERE email=@email AND senha=@senha";
+                    string sql = "SELECT id_usuario, nome_completo, nome_social, data_nascimento, email, senha FROM Usuarios WHERE email=@email AND senha=@senha";
                     conexaoDB.Open();
 
 
@@ -55,13 +56,14 @@ namespace PMT
                     SqlDataReader reader = sqlCmd.ExecuteReader();
                     if (reader.Read())
                     {
+                        int idUsuario = reader.GetInt32(reader.GetOrdinal("id_usuario"));
                         string nomeCompleto = reader.GetString(reader.GetOrdinal("nome_completo"));
                         string nomeSocial = reader.GetString(reader.GetOrdinal("nome_social"));
                         DateTime dataNascimento = reader.GetDateTime(reader.GetOrdinal("data_nascimento"));
                         string email = reader.GetString(reader.GetOrdinal("email"));
                         string senha = reader.GetString(reader.GetOrdinal("senha")); 
 
-                        Usuario usuario = new Usuario(nomeCompleto, nomeSocial, dataNascimento, email, senha);
+                        Usuario usuario = new Usuario(idUsuario, nomeCompleto, nomeSocial, dataNascimento, email, senha);
                         SessaoUsuario.DefiniroUsuarioAtual(usuario);
                         reader.Close();
                         MessageBox.Show("O login foi realizado com sucesso!");

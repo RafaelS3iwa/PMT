@@ -50,34 +50,40 @@
     <Compile Include="Classes\Candidato.cs" />
     <Compile Include="Classes\SessaoUsuario.cs" />
     <Compile Include="Classes\Usuario.cs" />
-    <Compile Include="FrmEditarPerfilUsuario.cs">
+    <Compile Include="TelasUsuario\FrmCadastroCandidato.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmEditarPerfilUsuario.Designer.cs">
+    <Compile Include="TelasUsuario\FrmCadastroCandidato.Designer.cs">
+      <DependentUpon>FrmCadastroCandidato.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelasUsuario\FrmEditarPerfilUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelasUsuario\FrmEditarPerfilUsuario.Designer.cs">
       <DependentUpon>FrmEditarPerfilUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmCadastroUsuario.cs">
+    <Compile Include="TelasUsuario\FrmCadastroUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmCadastroUsuario.Designer.cs">
+    <Compile Include="TelasUsuario\FrmCadastroUsuario.Designer.cs">
       <DependentUpon>FrmCadastroUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmIndexEmpresa.cs">
+    <Compile Include="TelasEmpresa\FrmIndexEmpresa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmIndexEmpresa.Designer.cs">
+    <Compile Include="TelasEmpresa\FrmIndexEmpresa.Designer.cs">
       <DependentUpon>FrmIndexEmpresa.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmLoginEmpresa.cs">
+    <Compile Include="TelasEmpresa\FrmLoginEmpresa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmLoginEmpresa.Designer.cs">
+    <Compile Include="TelasEmpresa\FrmLoginEmpresa.Designer.cs">
       <DependentUpon>FrmLoginEmpresa.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmLoginUsuario.cs">
+    <Compile Include="TelasUsuario\FrmLoginUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmLoginUsuario.Designer.cs">
+    <Compile Include="TelasUsuario\FrmLoginUsuario.Designer.cs">
       <DependentUpon>FrmLoginUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmTelaInicial.cs">
@@ -86,30 +92,33 @@
     <Compile Include="FrmTelaInicial.Designer.cs">
       <DependentUpon>FrmTelaInicial.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmUsuarioIndex.cs">
+    <Compile Include="TelasUsuario\FrmUsuarioIndex.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmUsuarioIndex.Designer.cs">
+    <Compile Include="TelasUsuario\FrmUsuarioIndex.Designer.cs">
       <DependentUpon>FrmUsuarioIndex.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmEditarPerfilUsuario.resx">
+    <EmbeddedResource Include="TelasUsuario\FrmCadastroCandidato.resx">
+      <DependentUpon>FrmCadastroCandidato.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelasUsuario\FrmEditarPerfilUsuario.resx">
       <DependentUpon>FrmEditarPerfilUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmCadastroUsuario.resx">
+    <EmbeddedResource Include="TelasUsuario\FrmCadastroUsuario.resx">
       <DependentUpon>FrmCadastroUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmLoginEmpresa.resx">
+    <EmbeddedResource Include="TelasEmpresa\FrmLoginEmpresa.resx">
       <DependentUpon>FrmLoginEmpresa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmLoginUsuario.resx">
+    <EmbeddedResource Include="TelasUsuario\FrmLoginUsuario.resx">
       <DependentUpon>FrmLoginUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTelaInicial.resx">
       <DependentUpon>FrmTelaInicial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmUsuarioIndex.resx">
+    <EmbeddedResource Include="TelasUsuario\FrmUsuarioIndex.resx">
       <DependentUpon>FrmUsuarioIndex.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

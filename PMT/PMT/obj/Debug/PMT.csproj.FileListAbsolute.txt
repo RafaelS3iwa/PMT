@@ -28,3 +28,4 @@ C:\PMT\PMT\PMT\obj\Debug\PMT.exe
 C:\PMT\PMT\PMT\obj\Debug\PMT.pdb
 C:\PMT\PMT\PMT\obj\Debug\PMT.FrmEditarPerfilUsuario.resources
 C:\PMT\PMT\PMT\obj\Debug\PMT.FrmLoginEmpresa.resources
+C:\PMT\PMT\PMT\obj\Debug\PMT.TelasUsuario.FrmCadastroCandidato.resources
