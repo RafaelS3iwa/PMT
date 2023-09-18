@@ -9,9 +9,9 @@ namespace PMT.Classes
 {
     public class Candidato
     {
-        private int _id;
+        private int _idCandidato;
         private int _idUsuario;
-        private int _idVaga;
+        private int _idAreaInteresse;
         private string _cpf;
         private string _telefone;
         private string _celular;
@@ -23,18 +23,18 @@ namespace PMT.Classes
         private string _nacionalidade;
         private string _estadoCivil;
         private byte[] _foto;
-        //private byte[] _pdf;
-        private int _cep;
+        private string _cep;
         private string _logradouro;
         private string _bairro;
         private int _numero;
         private string _cidade;
         private string _estado;
 
-        public Candidato(int id, int idUsuario, string cpf, string telefone, string celular, string genero, string experiencia, string conhecimento, string biografia, string escolaridade, string nacionalidade, string estadoCivil, byte[] foto, /*byte[] pdf,*/ int cep, string logradouro, string bairro, int numero, string cidade, string estado)
+        public Candidato(int idCandidato, int idUsuario, int idAreaInteresse, string cpf, string telefone, string celular, string genero, string experiencia, string conhecimento, string biografia, string escolaridade, string nacionalidade, string estadoCivil, byte[] foto, string cep, string logradouro, string bairro, int numero, string cidade, string estado)
         {
-            _id = id;
+            _idCandidato = idCandidato;
             _idUsuario = idUsuario;
+            _idAreaInteresse = idAreaInteresse; 
             _cpf = cpf;
             _telefone = telefone;
             _celular = celular;
@@ -46,7 +46,6 @@ namespace PMT.Classes
             _nacionalidade = nacionalidade;
             _estadoCivil = estadoCivil;
             _foto = foto;
-            //_pdf = pdf;
             _cep = cep;
             _logradouro = logradouro;
             _bairro = bairro;
@@ -55,14 +54,19 @@ namespace PMT.Classes
             _estado = estado;
         }
 
-        public int getId()
+        public int getIdCandidato()
         {
-            return _id;
+            return _idCandidato;
         }
 
         public int getIdUsuario()
         {
             return _idUsuario;
+        }
+
+        public int getAreaInteresse() 
+        {
+            return _idAreaInteresse; 
         }
 
         public string getCpf()
@@ -117,12 +121,7 @@ namespace PMT.Classes
             return _foto;
         }
 
-        /*public byte[] getPdf()
-        {
-            return _pdf;
-        }*/
-
-        public int getCep()
+        public string getCep()
         {
             return _cep;
         }

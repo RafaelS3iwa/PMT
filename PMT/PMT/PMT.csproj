@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\AreaInteresse.cs" />
     <Compile Include="Classes\Candidato.cs" />
     <Compile Include="Classes\SessaoUsuario.cs" />
     <Compile Include="Classes\Usuario.cs" />
@@ -80,6 +81,12 @@
     <Compile Include="TelasEmpresa\FrmLoginEmpresa.Designer.cs">
       <DependentUpon>FrmLoginEmpresa.cs</DependentUpon>
     </Compile>
+    <Compile Include="TelasUsuario\FrmEditarUsuarioSimples.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelasUsuario\FrmEditarUsuarioSimples.Designer.cs">
+      <DependentUpon>FrmEditarUsuarioSimples.cs</DependentUpon>
+    </Compile>
     <Compile Include="TelasUsuario\FrmLoginUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +98,18 @@
     </Compile>
     <Compile Include="FrmTelaInicial.Designer.cs">
       <DependentUpon>FrmTelaInicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelasUsuario\FrmPerfilCandidato.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelasUsuario\FrmPerfilCandidato.Designer.cs">
+      <DependentUpon>FrmPerfilCandidato.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelasUsuario\FrmPerfilUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelasUsuario\FrmPerfilUsuario.Designer.cs">
+      <DependentUpon>FrmPerfilUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="TelasUsuario\FrmUsuarioIndex.cs">
       <SubType>Form</SubType>
@@ -112,11 +131,20 @@
     <EmbeddedResource Include="TelasEmpresa\FrmLoginEmpresa.resx">
       <DependentUpon>FrmLoginEmpresa.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TelasUsuario\FrmEditarUsuarioSimples.resx">
+      <DependentUpon>FrmEditarUsuarioSimples.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TelasUsuario\FrmLoginUsuario.resx">
       <DependentUpon>FrmLoginUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTelaInicial.resx">
       <DependentUpon>FrmTelaInicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelasUsuario\FrmPerfilCandidato.resx">
+      <DependentUpon>FrmPerfilCandidato.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelasUsuario\FrmPerfilUsuario.resx">
+      <DependentUpon>FrmPerfilUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TelasUsuario\FrmUsuarioIndex.resx">
       <DependentUpon>FrmUsuarioIndex.cs</DependentUpon>

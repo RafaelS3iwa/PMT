@@ -46,3 +46,6 @@ C:\Users\rafael.niyasue\source\coiso\PMT\PMT\PMT\obj\Debug\PMT.csproj.GenerateRe
 C:\Users\rafael.niyasue\source\coiso\PMT\PMT\PMT\obj\Debug\PMT.csproj.CoreCompileInputs.cache
 C:\Users\rafael.niyasue\source\coiso\PMT\PMT\PMT\obj\Debug\PMT.exe
 C:\Users\rafael.niyasue\source\coiso\PMT\PMT\PMT\obj\Debug\PMT.pdb
+C:\PMT\PMT\PMT\obj\Debug\PMT.TelasUsuario.FrmPerfilCandidato.resources
+C:\PMT\PMT\PMT\obj\Debug\PMT.TelasUsuario.FrmPerfilUsuario.resources
+C:\PMT\PMT\PMT\obj\Debug\PMT.TelasUsuario.FrmEditarUsuarioSimples.resources

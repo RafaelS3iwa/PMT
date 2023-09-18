@@ -135,7 +135,7 @@
             this.BtnConfirmar.Name = "BtnConfirmar";
             this.BtnConfirmar.Size = new System.Drawing.Size(75, 46);
             this.BtnConfirmar.TabIndex = 9;
-            this.BtnConfirmar.Text = " ";
+            this.BtnConfirmar.Text = " Confirmar";
             this.BtnConfirmar.UseVisualStyleBackColor = true;
             this.BtnConfirmar.Click += new System.EventHandler(this.BtnConfirmar_Click);
             // 
@@ -433,7 +433,6 @@
             this.TxtBiografia.Name = "TxtBiografia";
             this.TxtBiografia.Size = new System.Drawing.Size(222, 227);
             this.TxtBiografia.TabIndex = 43;
-            this.TxtBiografia.TextChanged += new System.EventHandler(this.TxtBiografia_TextChanged);
             // 
             // panel1
             // 
@@ -472,7 +471,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(587, 1043);
             this.panel1.TabIndex = 44;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // TxtGenero
             // 
@@ -505,7 +503,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(620, 356);
+            this.ClientSize = new System.Drawing.Size(637, 356);
             this.Controls.Add(this.TxtBiografia);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.TxtEscolaridade);
@@ -523,7 +521,6 @@
             this.Controls.Add(this.panel1);
             this.Name = "FrmEditarPerfilUsuario";
             this.Text = "EditarPerfilUsuario";
-            this.Load += new System.EventHandler(this.FrmEditarPerfilUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PbFoto)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

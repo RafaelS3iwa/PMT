@@ -20,39 +20,19 @@ namespace PMT.TelasUsuario
         public string conexaoString;
         private SqlConnection conexaoDB;
 
+
         public FrmCadastroCandidato()
         {
             InitializeComponent();
 
-            conexaoString = "Data Source=MAR0625641W10-1;Initial Catalog=PMT;Integrated Security=True";
-            //conexaoString = "Data Source=DESKTOP-GTEHLVQ;Initial Catalog=PMT;Integrated Security=True";
-         
+            //conexaoString = "Data Source=MAR0625641W10-1;Initial Catalog=PMT;Integrated Security=True";
+            conexaoString = "Data Source=DESKTOP-GTEHLVQ;Initial Catalog=PMT;Integrated Security=True";
+            conexaoDB = new SqlConnection(conexaoString);
+
             CbFoto.Items.Add("Foto");
             CbFoto.Items.Add("Adicionar Foto");
             CbFoto.Items.Add("Remover Foto");
             CbFoto.SelectedIndex = 0;
-        }
-
-        private byte[] SelecionarImagem()
-        {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-
-            openFileDialog1.Filter = "Arquivos de Imagem|*.jpg;*.jpeg;*.png;*.gif;*.bmp";
-            openFileDialog1.Title = "Selecionar uma imagem";
-
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                try
-                {
-                    byte[] dadosDaFoto = File.ReadAllBytes(openFileDialog1.FileName);
-                    return dadosDaFoto;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Ocorreu um erro ao ler a imagem: " + ex.Message);
-                }
-            }
-            return null;
         }
 
         private void CbFoto_SelectedIndexChanged(object sender, EventArgs e)
@@ -60,14 +40,11 @@ namespace PMT.TelasUsuario
             if (CbFoto.SelectedItem.ToString() == "Adicionar Foto")
             {
                 CbFoto.SelectedIndex = 0;
-                byte[] dadosDaFoto = SelecionarImagem();
-
-                if (dadosDaFoto != null)
+                
+                OpenFileDialog openFile = new OpenFileDialog(); 
+                if(openFile.ShowDialog() == DialogResult.OK)
                 {
-                    using (MemoryStream ms = new MemoryStream(dadosDaFoto))
-                    {
-                        PbFoto.Image = Image.FromStream(ms);
-                    }
+                    PbFoto.Image = new Bitmap(openFile.FileName);
                 }
             }
             else if (CbFoto.SelectedItem.ToString() == "Remover Foto")
@@ -90,14 +67,17 @@ namespace PMT.TelasUsuario
                 {
                     string sql = "INSERT INTO Candidatos (id_usuario, id_area_interesse, cpf, telefone, genero, celular, experiencias, conhecimentos, biografia, escolaridade, nacionalidade, estado_civil, foto, cep, logradouro, bairro, numero, cidade, estado) VALUES (@id_usuario, @id_area_interesse, @cpf, @telefone, @genero, @celular, @experiencias, @conhecimentos, @biografia, @escolaridade, @nacionalidade, @estado_civil, @foto, @cep, @logradouro, @bairro, @numero, @cidade, @estado)";
                     conexaoDB.Open();
-
                     SqlCommand sqlCmd = new SqlCommand(sql, conexaoDB);
 
                     Usuario usuario = SessaoUsuario.UsuarioAtual;
-                    int idAreaInteresse = 1;
+
+                    AreaInteresse areaInteresse = new AreaInteresse();
+                    areaInteresse.iniciarAreaInteresse();
+
+                    int idArea = areaInteresse.getId();
 
                     sqlCmd.Parameters.AddWithValue("@id_usuario", usuario.getId());
-                    sqlCmd.Parameters.AddWithValue("@id_area_interesse", idAreaInteresse); 
+                    sqlCmd.Parameters.AddWithValue("@id_area_interesse", areaInteresse.getId()); 
                     sqlCmd.Parameters.AddWithValue("@cpf", TxtCpf.Text);
                     sqlCmd.Parameters.AddWithValue("@telefone", TxtTelefone.Text);
                     sqlCmd.Parameters.AddWithValue("@genero", TxtGenero.Text);
@@ -109,15 +89,8 @@ namespace PMT.TelasUsuario
                     sqlCmd.Parameters.AddWithValue("@nacionalidade", TxtNacionalidade.Text);
                     sqlCmd.Parameters.AddWithValue("@estado_civil", TxtEstadoCivil.Text);
 
-                    if (PbFoto.Image != null)
-                    {
-                        using (MemoryStream ms = new MemoryStream())
-                        {
-                            PbFoto.Image.Save(ms, PbFoto.Image.RawFormat);
-                            byte[] dadosDaImagem = ms.ToArray();
-                            sqlCmd.Parameters.Add("@foto", SqlDbType.VarBinary).Value = dadosDaImagem;
-                        }
-                    }
+                    sqlCmd.Parameters.AddWithValue("@foto", getFoto());
+
                     sqlCmd.Parameters.AddWithValue("@cep", TxtCep.Text);
                     sqlCmd.Parameters.AddWithValue("@logradouro", TxtLogradouro.Text);
                     sqlCmd.Parameters.AddWithValue("@bairro", TxtBairro.Text);
@@ -133,8 +106,10 @@ namespace PMT.TelasUsuario
                    
                     sqlCmd.ExecuteNonQuery();
 
+                    AdicionarCandidato();
+
                     MessageBox.Show("Cadastro realizado com sucesso!");
-                    conexaoDB.Close();
+               
 
                     Pausa();
                     FrmUsuarioIndex frmUsuarioIndex = new FrmUsuarioIndex();
@@ -146,36 +121,48 @@ namespace PMT.TelasUsuario
             {
                 MessageBox.Show($"Erro ao Inserir os Dados: {ex}");
             }
+            finally
+            {
+                if (conexaoDB != null && conexaoDB.State == ConnectionState.Open)
+                {
+                    conexaoDB.Close();
+                }
+            }
         }
 
         private void AdicionarCandidato()
         {
             try
             {
-                string sql = "SELECT * FROM Candidatos";
+                string sql = "SELECT * FROM Candidatos WHERE id_usuario=@id_usuario";
                 conexaoDB.Open();
+
+                Usuario usuario = SessaoUsuario.UsuarioAtual;
                 SqlCommand sqlCmd = new SqlCommand(sql, conexaoDB);
+
+                int idUsuarioLogin = usuario.getId();
+                sqlCmd.Parameters.AddWithValue("@id_usuario", idUsuarioLogin);
 
                 SqlDataReader reader = sqlCmd.ExecuteReader();
                 if (reader.Read())
                 {
-                    int id = reader.GetInt32(reader.GetOrdinal("id"));
+                    int idCandidato = reader.GetInt32(reader.GetOrdinal("id_candidato"));
                     int idUsuario = reader.GetInt32(reader.GetOrdinal("id_usuario"));
-
+                    int idAreaInteresse = reader.GetInt32(reader.GetOrdinal("id_area_interesse"));
                     string cpf = reader.GetString(reader.GetOrdinal("cpf"));
                     string telefone = reader.GetString(reader.GetOrdinal("telefone"));
                     string celular = reader.GetString(reader.GetOrdinal("celular"));
                     string genero = reader.GetString(reader.GetOrdinal("genero"));
-                    string experiencia = reader.GetString(reader.GetOrdinal("experiencia"));
-                    string conhecimento = reader.GetString(reader.GetOrdinal("conhecimento"));
+                    string experiencia = reader.GetString(reader.GetOrdinal("experiencias"));
+                    string conhecimento = reader.GetString(reader.GetOrdinal("conhecimentos"));
                     string biografia = reader.GetString(reader.GetOrdinal("biografia"));
                     string escolaridade = reader.GetString(reader.GetOrdinal("escolaridade"));
                     string nacionalidade = reader.GetString(reader.GetOrdinal("nacionalidade"));
-                    string estadoCivil = reader.GetString(reader.GetOrdinal("estadoCivil"));
+                    string estadoCivil = reader.GetString(reader.GetOrdinal("estado_civil"));
 
                     byte[] foto = (byte[])reader["foto"];
 
-                    int cep = reader.GetInt32(reader.GetOrdinal("cep"));
+                    string cep = reader.GetString(reader.GetOrdinal("cep"));
 
                     string logradouro = reader.GetString(reader.GetOrdinal("logradouro"));
                     string bairro = reader.GetString(reader.GetOrdinal("bairro"));
@@ -185,15 +172,21 @@ namespace PMT.TelasUsuario
                     string cidade = reader.GetString(reader.GetOrdinal("cidade"));
                     string estado = reader.GetString(reader.GetOrdinal("estado"));
 
-                    Candidato candidatato = new Candidato(id, idUsuario, cpf, telefone, celular, genero, experiencia, conhecimento, biografia, escolaridade, nacionalidade, estadoCivil, foto, cep, logradouro, bairro, numero, cidade, estado);
-                    SessaoUsuario.DefinirCandidatoAtual(candidatato);
+                    Candidato candidato = new Candidato(idCandidato, idUsuario, idAreaInteresse, cpf, telefone, celular, genero, experiencia, conhecimento, biografia, escolaridade, nacionalidade, estadoCivil, foto, cep, logradouro, bairro, numero, cidade, estado);
+                    SessaoUsuario.DefinirCandidatoAtual(candidato);
                     reader.Close();
-                    conexaoDB.Close();
                 }
             }catch(Exception ex)
             {
                 MessageBox.Show($"Erro ao Inserir os Dados: {ex}");
             }
+        }
+
+        private byte[] getFoto()
+        {
+            MemoryStream ms = new MemoryStream();
+            PbFoto.Image.Save(ms, PbFoto.Image.RawFormat);
+            return ms.GetBuffer();
         }
 
         async void Pausa()

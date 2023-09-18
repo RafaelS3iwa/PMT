@@ -21,8 +21,8 @@ namespace PMT
         public FrmLoginUsuario()
         {
             InitializeComponent();
-            conexaoString = "Data Source=MAR0625641W10-1;Initial Catalog=PMT;Integrated Security=True";
-            //conexaoString = "Data Source=DESKTOP-GTEHLVQ;Initial Catalog=PMT;Integrated Security=True";
+            //conexaoString = "Data Source=MAR0625641W10-1;Initial Catalog=PMT;Integrated Security=True";
+            conexaoString = "Data Source=DESKTOP-GTEHLVQ;Initial Catalog=PMT;Integrated Security=True";
             conexaoDB = new SqlConnection(conexaoString);
         }
 
@@ -31,6 +31,26 @@ namespace PMT
             FrmCadastroUsuario formCadastroUsuario = new FrmCadastroUsuario();
             formCadastroUsuario.Show();
             this.Hide(); 
+        }
+
+        public bool VerificarUsuarioCandidato(int idUsuario)
+        {
+            string sql = "SELECT COUNT(*) FROM Candidatos WHERE id_usuario = @id_usuario";
+
+            SqlCommand sqlCmd = new SqlCommand(sql, conexaoDB);
+
+            sqlCmd.Parameters.AddWithValue("@id_usuario", idUsuario);
+            try
+            {
+                conexaoDB.Open();
+                int quantidadeRegistro = (int)sqlCmd.ExecuteScalar();
+                return quantidadeRegistro > 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erro ao verificar se o usuário é um candidato: " + ex.Message);
+                return false;
+            }
         }
 
         private void BtnConfirmarLoginUsuario_Click(object sender, EventArgs e)
@@ -46,7 +66,6 @@ namespace PMT
                 {
                     string sql = "SELECT id_usuario, nome_completo, nome_social, data_nascimento, email, senha FROM Usuarios WHERE email=@email AND senha=@senha";
                     conexaoDB.Open();
-
 
                     SqlCommand sqlCmd = new SqlCommand(sql, conexaoDB);
 
@@ -66,14 +85,24 @@ namespace PMT
                         Usuario usuario = new Usuario(idUsuario, nomeCompleto, nomeSocial, dataNascimento, email, senha);
                         SessaoUsuario.DefiniroUsuarioAtual(usuario);
                         reader.Close();
-                        MessageBox.Show("O login foi realizado com sucesso!");
 
+                        bool usuarioCandidato = VerificarUsuarioCandidato(idUsuario);
+                        if (!usuarioCandidato)
+                        {
+                            AdicionarCandidato();
+                            reader.Close();
+                            Candidato candidato = SessaoUsuario.CandidatoAtual;
+                            MessageBox.Show($"O login foi realizado com sucesso!");
+                        }
+                        else
+                        {
+                            MessageBox.Show($"O login foi realizado com sucesso!");
+                        }
 
                         Pausa();
                         FrmUsuarioIndex frmUsuarioIndex = new FrmUsuarioIndex();
                         frmUsuarioIndex.Show();
                         this.Hide();
-                        
                     }
                     else
                     {
@@ -90,6 +119,57 @@ namespace PMT
                 }
             }
         }
+
+        private void AdicionarCandidato()
+        {
+            try
+            {
+                string sql = "SELECT * FROM Candidatos WHERE id_usuario=@id_usuario";
+                SqlCommand sqlCmd = new SqlCommand(sql, conexaoDB);
+
+                Usuario usuario = SessaoUsuario.UsuarioAtual;
+                int idUsuarioLogin = usuario.getId();
+                sqlCmd.Parameters.AddWithValue("@id_usuario", idUsuarioLogin);
+
+                SqlDataReader reader = sqlCmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    int idCandidato = reader.GetInt32(reader.GetOrdinal("id_candidato"));
+                    int idUsuario = reader.GetInt32(reader.GetOrdinal("id_usuario"));
+                    int idAreaInteresse = reader.GetInt32(reader.GetOrdinal("id_area_interesse"));
+                    string cpf = reader.GetString(reader.GetOrdinal("cpf"));
+                    string telefone = reader.GetString(reader.GetOrdinal("telefone"));
+                    string celular = reader.GetString(reader.GetOrdinal("celular"));
+                    string genero = reader.GetString(reader.GetOrdinal("genero"));
+                    string experiencia = reader.GetString(reader.GetOrdinal("experiencias"));
+                    string conhecimento = reader.GetString(reader.GetOrdinal("conhecimentos"));
+                    string biografia = reader.GetString(reader.GetOrdinal("biografia"));
+                    string escolaridade = reader.GetString(reader.GetOrdinal("escolaridade"));
+                    string nacionalidade = reader.GetString(reader.GetOrdinal("nacionalidade"));
+                    string estadoCivil = reader.GetString(reader.GetOrdinal("estado_civil"));
+
+                    byte[] foto = (byte[])reader["foto"];
+
+                    string cep = reader.GetString(reader.GetOrdinal("cep"));
+
+                    string logradouro = reader.GetString(reader.GetOrdinal("logradouro"));
+                    string bairro = reader.GetString(reader.GetOrdinal("bairro"));
+
+                    int numero = reader.GetInt32(reader.GetOrdinal("numero"));
+
+                    string cidade = reader.GetString(reader.GetOrdinal("cidade"));
+                    string estado = reader.GetString(reader.GetOrdinal("estado"));
+
+                    Candidato candidato = new Candidato(idCandidato, idUsuario, idAreaInteresse, cpf, telefone, celular, genero, experiencia, conhecimento, biografia, escolaridade, nacionalidade, estadoCivil, foto, cep, logradouro, bairro, numero, cidade, estado);
+                    SessaoUsuario.DefinirCandidatoAtual(candidato);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao Inserir os Dados: {ex}");
+            }
+        }
+
         async void Pausa()
         {
             await Task.Delay(2000); ;
